@@ -1,13 +1,104 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+*{
+  margin:0;
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+html, body{
+  scroll-behavior: smooth;
+  height:100%;
+  margin:0;
+  overflow-x: hidden;
+  width:100%;
+  font-family: arial,'sans-serif';
+  font-family: arial,'sans-serif';
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+nav{
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  opacity: 0.5;
+  backdrop-filter:blur(0.5px);
+}
+nav .nav-link{
+  opacity: 1;
+  border-bottom: 1px solid transparent;
+}
+nav .nav-link:hover{
+  transition: 0.5s ease-in-out;
+  border-bottom: 1px solid coral;
+}
+
+.hero .landhero{
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  z-index: -2;
+  width:100%;
+  height: 100%;
+  background: linear-gradient(0deg, rgba(254,204,38,1) 0%, rgba(253,160,45,1) 100%);
+}
+.hero .bghero{
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url('/public/images/hero.png');
+  width: 50vw;
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  margin: 0;
+  left: 0;
+}
+
+.herotxt h1:nth-child(2){
+  color: transparent!important;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: white;
+}
+
+.herotxt h1{
+  font-weight: bolder!important;
+  margin: 0!important;
+}
+
+/* Loder Start*/
+.loader{
+  width: 50px;
+  height:50px;
+  border-top: 3px solid yellow;
+  border-radius: 100%;
+  animation: rollzeb 1s linear infinite;
+}
+
+@keyframes rollzeb {
+  0%{transform: rotate(0deg);}
+  50%{border-top: 2px solid coral;}
+  100%{transform: rotate(360deg);}
+
+}
+
+
+/* Loader End */
+
+footer{
+  height:100%;
+  width:100%;
+  background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)),url('/public/images/foot.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+@media only screen and (max-width: 988px) {
+  .hero .bghero{
+    width:100vw;
+  }
 }
