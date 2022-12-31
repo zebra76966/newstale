@@ -19,7 +19,6 @@ const Main=()=>{
   const [datas,setData] = useState([]);
   const [isLoad,setIsload] = useState(false);
   const [search, setSearch] = useState('');
-
   const [pageNum, setPageNum] = useState(0);
   const cardPerPage = 9
   const pageCurrent = cardPerPage * pageNum;
@@ -60,11 +59,12 @@ const Main=()=>{
 
               <input type="text" className="form-control" placeholder="Search Stories"
                 onChange={(e)=>setSearch(e.target.value.toLowerCase())}/>
-              <i class="fa fa-search fs-2"></i>
+              <i className="fa fa-search fs-2"></i>
             </div>
           </div>
 
-          {cardSet.map(pini=>{
+
+          {(search.length===0?cardSet:datas).map(pini=>{
             if((pini.item.headline[0].toLowerCase()).includes(search)){
 
               return <Card ls={localDat}
