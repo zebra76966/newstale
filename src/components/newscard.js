@@ -3,7 +3,6 @@ import {useEffect, useState} from 'react';
 import Axios from 'axios';
 
 const Card = (props) =>{
-  console.log(props.res)
   const [images,setImg] = useState([]);
   const [localDat, setLocaldat] = useState(localStorage.getItem('likes')!=null?JSON.parse(localStorage.getItem('likes')):[]);
 
