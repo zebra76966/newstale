@@ -7,11 +7,20 @@ import Footer from './footer'
 import ReactPaginate from 'react-paginate'
 const Main=()=>{
 
+  const [localDat, setLocaldat] = useState(localStorage.getItem('likes')!==null?JSON.parse(localStorage.getItem('likes')):[]);
+// Alternate methods in *components/alt.md* =====>
+
+  useEffect(()=>{
+    localStorage.setItem('likes',JSON.stringify(localDat))
+  },[localDat])
+
+
+
   const [datas,setData] = useState([]);
   const [isLoad,setIsload] = useState(false);
   const [search, setSearch] = useState('');
 
-  const [pageNum, setPageNum] = useState(1);
+  const [pageNum, setPageNum] = useState(0);
   const cardPerPage = 9
   const pageCurrent = cardPerPage * pageNum;
   const cardSet = datas.slice(pageCurrent, pageCurrent+cardPerPage)
@@ -58,7 +67,10 @@ const Main=()=>{
           {cardSet.map(pini=>{
             if((pini.item.headline[0].toLowerCase()).includes(search)){
 
-              return <Card res={pini}/>
+              return <Card ls={localDat}
+              onClick={(val)=>setLocaldat(ini=>[...ini,val])}
+              onDelete={(val)=>{setLocaldat(ini=>ini.filter(function(e){return e!=pini.id}))}}
+              res={pini}/>
             }
           })
           }
