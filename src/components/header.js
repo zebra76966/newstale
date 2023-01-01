@@ -52,10 +52,10 @@ const Header=()=>{
                 Start Now
                 <i className="fa-solid fa-arrow-right ps-2"></i>
               </a>
-            </div>  
+            </div>
           </div>
           <div className="col-lg-5 col-12">
-          <h4 className="fs-4 text-lg-start text-light text-lg-dark pb-3  text-center fw-bold">SignUp for you <span className="bg-dark p-2 text-warning">NewsLetter!</span></h4>
+          <h4 className="fs-4 text-lg-start text-light text-lg-dark pb-3  text-center fw-bold">SignUp for our <span className="bg-dark p-2 text-warning">NewsLetter!</span></h4>
             <form className="bg-none rounded d-flex" autoComplete="on">
             <hr/>
               <input className="form-control border border-3 rounded-0 rounded-start p-3" type="email" placeholder="Your Email Address" aria-label="email"/>
