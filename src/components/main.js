@@ -87,7 +87,7 @@ const Main = () => {
                 );
               }
             })}
-            {/*Search-bar code End ======>*/}
+            {/*Search-bar code End ==========>*/}
           </div>
 
           <div className="col-12 py-5">
