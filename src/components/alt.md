@@ -1,42 +1,42 @@
 import React from 'react';
 import {useEffect, useState} from 'react';
 import Axios from 'axios';
+import mockdata from "./mockdata.json";
 
 const Card = () =>{
 
-  const [isLoad,setIsload] = useState(false);
+const [isLoad,setIsload] = useState(false);
 
-  const [datas,setData] = useState([]);
-  const [images,setImg] = useState([]);
-  const [toggle, setToggle] = useState(false);
+const [datas,setData] = useState([]);
+const [images,setImg] = useState([]);
+const [toggle, setToggle] = useState(false);
 
-  const handle = (e)=>{
-    setToggle(!toggle);
-    if(localStorage.getItem(e.currentTarget.id)===null || localStorage.getItem(e.currentTarget.id)==="no"){
-      localStorage.setItem(e.currentTarget.id,"ok")
-    }
-    else{
-      localStorage.setItem(e.currentTarget.id,"no")
-    }
-  }
+const handle = (e)=>{
+setToggle(!toggle);
+if(localStorage.getItem(e.currentTarget.id)===null || localStorage.getItem(e.currentTarget.id)==="no"){
+localStorage.setItem(e.currentTarget.id,"ok")
+}
+else{
+localStorage.setItem(e.currentTarget.id,"no")
+}
+}
 
-  useEffect(()=>{
-    setIsload(true);
-    Axios.get("https://cors-anywhere.herokuapp.com/https://ace.qtstage.io/api/v1/collections/entertainment")
-    .then(response=>response)
-    .then(data=>{
-      setData(data.data.items)
-      setIsload(false);
-    })
-  },[])
+useEffect(()=>{
+setIsload(true);
+Axios.get("https://cors-anywhere.herokuapp.com/https://ace.qtstage.io/api/v1/collections/entertainment")
+.then(response=>response)
+.then(data=>{
+setData(data.data.items)
+setIsload(false);
+})
+},[])
 
-
-  return (
-    <>
-    {isLoad&&<span className="col-12 my-5 py-5">
-      <div className="loader mx-auto"></div>
-    </span>}
-    {datas.map((res)=>{
+return (
+<>
+{isLoad&&<span className="col-12 my-5 py-5">
+<div className="loader mx-auto"></div>
+</span>}
+{datas.map((res)=>{
 
       return(
         <div className="col-12 col-md-6 col-lg-4 p-3">
@@ -76,7 +76,8 @@ const Card = () =>{
     })}
 
     </>
-  )
+
+)
 }
 
 export default Card;
