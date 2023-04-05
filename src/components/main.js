@@ -26,7 +26,6 @@ const Main = () => {
 
   return (
     <>
-      {console.log(mockdata)}
       <Header />
       <div id="trend" className="bg-light rounded" style={{ background: "linear-gradient(0deg, rgba(0,6,20,1) 0%, rgba(0,0,0,1) 100%)" }}>
         <div className="container">
